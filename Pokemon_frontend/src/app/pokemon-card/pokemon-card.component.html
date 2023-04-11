@@ -1,17 +1,17 @@
 <div class="container" style="padding: 10px;" *ngFor="let item of pokemon">
-    <div class="pokemon-card">
-      <div class="pokemon-card-img-container col-3">
-        <img class="pokemon-card-img" [src]="item.sprites.front_default" alt="Pokemon" />
-      </div>
-      <div class="pokemon-card-text col-4">
-        <h4 class="pokemon-card-font-size">{{item.name}}</h4>
-        <p class="pokemon-card-number pokemon-card-font-size">Nr.{{item.id}}</p>
-      </div>
-      <div class="pokemon-card-type d-flex col-2">
-        <p class="pokemon-card-type-text" *ngFor="let t of item.types" [ngStyle]="{'background-color': t.type.color}">{{t.type.name}}</p>
-      </div>
-      <div class="col-3">
-        <i style="color: lightgray; float: right;" class="fa-solid fa-chevron-right"></i>
-      </div>
-    </div>
+  <div class="pokemon-card">
+        <div class="pokemon-card-img-container col-3">
+          <img class="pokemon-card-img" [src]="item.sprites.front_default" alt="Pokemon" />
+        </div>
+        <div class="pokemon-card-text col-4">
+          <h4 class="pokemon-card-name-tekst">{{item.name}}</h4>
+          <p class="pokemon-card-number pokemon-card-font-size">Nr. {{item.id.toLocaleString(undefined, {minimumIntegerDigits: 3, useGrouping:false})}}</p>
+        </div>
+        <div class="pokemon-card-type d-flex col-2">
+          <p class="pokemon-card-type-text" *ngFor="let t of item.types" [ngStyle]="{'background-color': t.type.color}">{{t.type.name}}</p>
+        </div>
+        <div class="col-3">
+          <a routerLink="pokemon-detail/{{item.id}}"><i style="color: lightgray; float: right;" class="fa-solid fa-chevron-right"></i></a>
+        </div>
+  </div>
 </div>

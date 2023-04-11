@@ -1,0 +1,75 @@
+<div class="container">
+  <div
+    class="d-flex justify-content-between"
+    style="margin-top: 2rem; margin-bottom: 1.25rem"
+  >
+    <a routerLink="/"><i class="fa-solid fa-angle-left">Terug</i></a>
+    <i class="fa-regular fa-heart heart"></i>
+  </div>
+  <h1>{{ pokemon.name }}</h1>
+  <div class="container-img">
+    <img
+      class="detail-img"
+      [src]="pokemon.sprites.other.dream_world.front_default"
+    />
+  </div>
+  <div class="container">
+    <p class="">ABOUT</p>
+    <div class="about-card">
+      <div class="container-card-tekst">
+        <p class="card-text-gray col-3">Type</p>
+        <div class="col-1"></div>
+        <p
+          class="pokemon-card-type-text col-2"
+          *ngFor="let t of pokemon.types"
+          [ngStyle]="{ 'background-color': t.type.color }"
+        >
+          {{ t.type.name }}
+        </p>
+      </div>
+      <div class="container-card-tekst">
+        <p class="card-text-gray col-3">Number</p>
+        <div class="col-1"></div>
+        <p class="card-text col-2">
+          {{
+            pokemon.id.toLocaleString(undefined, {
+              minimumIntegerDigits: 3,
+              useGrouping: false
+            })
+          }}
+        </p>
+      </div>
+      <div class="container-card-tekst">
+        <p class="card-text-gray col-3">Hoogte</p>
+        <div class="col-1"></div>
+        <p class="card-text col-2">{{ pokemon.height }}m</p>
+      </div>
+      <div class="container-card-tekst">
+        <p class="card-text-gray col-3">Gewicht</p>
+        <div class="col-1"></div>
+        <p class="card-text col-3">{{ pokemon.weight }} kg</p>
+      </div>
+      <div class="container-card-tekst">
+        <p class="card-text-gray col-3">Vaardigheden</p>
+        <div class="col-1"></div>
+        <p class="card-text col" *ngFor="let t of pokemon.abilities">
+          {{ t.ability.name }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 1rem">
+    <p>STATISTIEKEN</p>
+    <div class="about-card-stats">
+      <div class="container-card-tekst-stats" >
+        <p class="card-text-stats-gray" *ngFor="let s of pokemon.stats">{{ s.stat.name }}</p>
+      </div>
+      <div class="container-card-tekst-stats" style="width: 15%;">
+        <p class="card-stats-text" *ngFor="let s of pokemon.stats">{{s.base_stat}}</p>
+      </div>
+      <div class="container-progress-bar">
+        <progress style="height: 10px;" id="file" *ngFor="let p of pokemon.stats" value="{{p.base_stat}}" max="100">{{p.base_stat}}</progress>
+      </div>
+    </div>
+  </div>
+</div>
