@@ -1,9 +1,11 @@
+import { PokemonDetail } from './../models/PokemonDetail.model';
 import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/Pokemon.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Type } from '../models/Type.model';
-import { PokemonDetail } from '../models/PokemonDetail.model';
+import { Stats } from '../models/Stats.model';
+import { Stat } from '../models/Stat.model';
 
 @Injectable({
    providedIn: 'root'
@@ -34,6 +36,13 @@ export class PokemonService {
           const type = new Type();
           type.name = t.type.name;
           t.type = type;
+        });
+        response.stats.forEach(s => {
+          const stat = new Stats();
+          stat.base_stat = s.base_stat;
+          stat.effort = s.effort;
+          stat.stat = s.stat;
+          s = stat;
         });
       return response;
     }));

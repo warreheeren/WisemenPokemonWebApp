@@ -4,7 +4,7 @@
     style="margin-top: 2rem; margin-bottom: 1.25rem"
   >
     <a routerLink="/"><i class="fa-solid fa-angle-left">Terug</i></a>
-    <i class="fa-regular fa-heart heart"></i>
+    <div (click)="addToFavorite(pokemon)" routerLink="/favorites"><i class="fa-regular fa-heart heart"></i></div>
   </div>
   <h1>{{ pokemon.name }}</h1>
   <div class="container-img">
@@ -61,15 +61,14 @@
   <div class="container" style="margin-top: 1rem">
     <p>STATISTIEKEN</p>
     <div class="about-card-stats">
-      <div class="container-card-tekst-stats" >
-        <p class="card-text-stats-gray" *ngFor="let s of pokemon.stats">{{ s.stat.name }}</p>
-      </div>
-      <div class="container-card-tekst-stats" style="width: 15%;">
-        <p class="card-stats-text" *ngFor="let s of pokemon.stats">{{s.base_stat}}</p>
-      </div>
-      <div class="container-progress-bar">
-        <progress style="height: 10px;" id="file" *ngFor="let p of pokemon.stats" value="{{p.base_stat}}" max="100">{{p.base_stat}}</progress>
+      <div class="row align-items-center mb-2" *ngFor="let item of pokemon.stats">
+        <p class="card-text-stats-gray col-4"  >{{ strToCheck(item.stat.name) }}</p>
+        <p class="card-stats-text col-2" >{{item.base_stat}}</p>
+        <progress class="col-5" id="file"value="{{item.base_stat}}" max="100" [ngStyle]="{'background-color': item.color}">{{item.base_stat}}</progress>
       </div>
     </div>
+  </div>
+  <div class="container text-center fixed-bton">
+    <button class="btn team-bton" routerLink="/my-team">Toevoegen aan mijn team</button>
   </div>
 </div>

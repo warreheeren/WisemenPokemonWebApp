@@ -31,6 +31,7 @@
   margin-right: 5px;
   font-size: 0.75rem;
   width: fit-content;
+  text-align: center;
 }
 
 .container-card-tekst{
@@ -47,14 +48,13 @@
 .card-text-stats-gray{
   color: rgb(190, 189, 189);
   text-transform: capitalize;
+  margin-bottom: 0;
 }
 
 .about-card-stats{
   border-radius: 0.75rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   padding: 0.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card-text{
@@ -68,10 +68,27 @@
   color: black;
   font-weight: 600;
   text-transform: capitalize;
+  margin-bottom: 0;
 }
 
 .container-card-tekst-stats{
   margin-top: 0.75rem;
   flex-direction: column;
-    width: 100px;
+  width: 100px;
+}
+
+.team-bton{
+  color: white;
+  background-color: rgb(36, 36, 36);
+  border-radius: 50px;
+  font-size: 20px;
+  width: 100%;
+  z-index: 99;
+}
+
+.fixed-bton{
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  margin-left: -50%;
 }

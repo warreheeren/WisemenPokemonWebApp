@@ -1,0 +1,4 @@
+<a routerLink="/">home</a>
+<div class="container" style="padding: 10px;" *ngFor="let item of pokemon">
+  <app-pokemon-card [pokemon]="item" routerLink="/pokemon-detail/{{item.id}}"></app-pokemon-card>
+</div>

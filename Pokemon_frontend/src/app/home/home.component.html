@@ -13,12 +13,12 @@
   </div>
   <div class="d-flex">
     <div class="home-team">
-      <h5 class="home-card-tekst">Mijn team</h5>
+      <h5 class="home-card-tekst" routerLink="/my-team">Mijn team</h5>
     </div>
     <div class="home-favo">
-      <h5 class="home-card-tekst">Favorieten</h5>
+      <h5 class="home-card-tekst" routerLink="/favorites">Favorieten</h5>
     </div>
   </div>
 </div>
 
-<app-pokemon-card ></app-pokemon-card>
+<app-pokemon-card *ngFor="let item of pokemon" [pokemon]="item" routerLink="pokemon-detail/{{item.id}}"></app-pokemon-card>
