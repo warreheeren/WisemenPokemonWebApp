@@ -8,15 +8,15 @@ import { map } from "rxjs";
   providedIn: 'root'
 })
 export class FavoriteService {
-
+  counter: number;
   constructor() { }
 
   addToFavorite(pokemon: PokemonDetail) {
     let favorites = this.getFavoritePokemons();
-
-    if(favorites){
+    if (favorites) {
       favorites.push(pokemon);
-    }else{
+      this.counter++;
+    } else {
       favorites = [pokemon];
     }
 
@@ -27,5 +27,14 @@ export class FavoriteService {
   getFavoritePokemons() {
     const favorites = localStorage.getItem('pokemon');
     return favorites ? JSON.parse(favorites) : [];
+  }
+
+  removeAllFavorites() {
+    // let favorites = this.getFavoritePokemons();
+    return localStorage.removeItem('pokemon');
+  }
+
+  removeFavorite(pokemon : PokemonDetail){
+
   }
 }

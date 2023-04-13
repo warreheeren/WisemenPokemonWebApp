@@ -4,7 +4,8 @@
     style="margin-top: 2rem; margin-bottom: 1.25rem"
   >
     <a routerLink="/"><i class="fa-solid fa-angle-left">Terug</i></a>
-    <div (click)="addToFavorite(pokemon)" routerLink="/favorites"><i class="fa-regular fa-heart heart"></i></div>
+    <div (click)="addToFavorite(pokemon)" routerLink="/favorites"><i class="fa-regular fa-heart heart"></i>
+    </div>
   </div>
   <h1>{{ pokemon.name }}</h1>
   <div class="container-img">
@@ -69,6 +70,6 @@
     </div>
   </div>
   <div class="container text-center fixed-bton">
-    <button class="btn team-bton" routerLink="/my-team">Toevoegen aan mijn team</button>
+    <button (click)="addToTeam(pokemon)" class="btn team-bton" routerLink="/my-team">Toevoegen aan mijn team</button>
   </div>
 </div>
